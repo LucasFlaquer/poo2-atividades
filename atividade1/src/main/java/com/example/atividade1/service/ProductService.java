@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.example.atividade1.model.Product;
 import com.example.atividade1.repository.ProductRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ProductService {
-
+    @Autowired
     private ProductRepository pr;
     private ArrayList<Product> list = new ArrayList<Product>();
     public Product getProductById(int id) {

@@ -17,11 +17,15 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/product")
 public class ProductController {
 
+    @Autowired
+    private ProductService ps;
+
+
     @GetMapping("/{id}")
     public ModelAndView getProduct(@PathVariable("id") int id) {
         ModelAndView mv = new ModelAndView("view");
-        //Product prod = ps.getProductById(id);
-        mv.addObject("product", new Product(1, "name", 123, 10));
+        Product prod = ps.getProductById(id);
+        mv.addObject("product", prod);
         return mv;
     }
 }
