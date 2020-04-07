@@ -1,7 +1,19 @@
 package com.example.atividade2.entity;
 
-public class Funcionario {
+import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Funcionario implements Serializable{
+
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+  
+  @Id
   private int id;
   private String nome;
   private String cpf;
