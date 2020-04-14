@@ -3,6 +3,8 @@ package com.example.atividade2.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -14,11 +16,17 @@ public class Funcionario implements Serializable{
   private static final long serialVersionUID = 1L;
   
   @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private int id;
   private String nome;
   private String cpf;
   private String email;
   private double salario;
+  private int idade;
+
+  public static long getSerialversionuid() {
+    return serialVersionUID;
+  }
 
   public int getId() {
     return id;
@@ -60,20 +68,18 @@ public class Funcionario implements Serializable{
     this.salario = salario;
   }
 
-  public Funcionario() {}
+  public int getIdade() {
+    return idade;
+  }
 
-  public Funcionario(int id, String nome, String cpf, String email, double salario) {
-    this.id = id;
-    this.nome = nome;
-    this.cpf = cpf;
-    this.email = email;
-    this.salario = salario;
+  public void setIdade(int idade) {
+    this.idade = idade;
   }
 
   @Override
   public String toString() {
-    return "Funcionario [cpf=" + cpf + ", email=" + email + ", id=" + id + ", nome=" + nome + ", salario=" + salario
-        + "]";
+    return "Funcionario [cpf=" + cpf + ", email=" + email + ", id=" + id + ", idade=" + idade + ", nome=" + nome
+        + ", salario=" + salario + "]";
   }
     
 }
