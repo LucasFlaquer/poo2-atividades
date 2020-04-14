@@ -8,33 +8,35 @@
 <body>
   <main>
     <h1>Cadastro e Listagem de Funcionarios</h1>
-    <form action="">
-      <input type="text">
-      <input type="text">
-      <input type="text">
-      <input type="text">
-      <input type="text">
+    <form th:action="@{/funcionarios}" method="POST">
+      <input type="text" name="nome" placeholder="nome">
+      <input type="text" name="cpf" placeholder="cpf">
+      <input type="email" name="email" placeholder="email">
+      <input type="text" name="salario" placeholder="salario">
+      <input type="text" name="idade" placeholder="idade">
+      <button>Cadastrar</button>
     </form>
 
     <table>
       <thead>
         <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
+          <th>id</th>
+          <th>nome</th>
+          <th>cpf</th>
+          <th>email</th>
+          <th>salario</th>
+          <th>idade</th>
         </tr>
       </thead>
       <tbody>
-        <tr each>
-          <td>id</td>
-          <td>nome</td>
-          <td>cpf</td>
-          <td>email</td>
-          <td>salario</td>
-          <td>idade</td>
+        <tr th:each="funcionario : ${funcionarios}">
+          <td th:text="${funcionario.id}"></td>
+          <td th:text="${funcionario.nome}"></td>
+          <td th:text="${funcionario.cpf}"></td>
+          <td th:text="${funcionario.email}"></td>
+          <td th:text="${funcionario.salario}"></td>
+          <td th:text="${funcionario.idade}"></td>
+
         </tr>
       </tbody>
     </table>
