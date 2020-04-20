@@ -8,13 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Funcionario implements Serializable{
+public class Funcionario implements Serializable {
 
   /**
    *
    */
   private static final long serialVersionUID = 1L;
-  
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private int id;
@@ -78,8 +78,18 @@ public class Funcionario implements Serializable{
 
   @Override
   public String toString() {
-    return "Funcionario [cpf=" + cpf + ", email=" + email + ", id=" + id + ", idade=" + idade + ", nome=" + nome
-        + ", salario=" + salario + "]";
+    return "Funcionario []";
   }
-    
+
+  public Funcionario(String nome, String cpf, String email, double salario, int idade) {
+    this.nome = nome;
+    this.cpf = cpf;
+    this.email = email;
+    this.salario = salario;
+    this.idade = idade;
+  }
+
+  public Funcionario() {
+  }
+
 }

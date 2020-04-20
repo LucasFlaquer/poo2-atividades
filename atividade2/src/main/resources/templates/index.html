@@ -1,45 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <main>
-    <h1>Cadastro e Listagem de Funcionarios</h1>
-    <form th:action="@{/funcionarios}" method="POST">
-      <input type="text" name="nome" placeholder="nome">
-      <input type="text" name="cpf" placeholder="cpf">
-      <input type="email" name="email" placeholder="email">
-      <input type="text" name="salario" placeholder="salario">
-      <input type="text" name="idade" placeholder="idade">
-      <button>Cadastrar</button>
-    </form>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h1>Cadastro e Listagem de Funcionarios</h1>
+      <form th:action="@{/funcionarios}" method="POST" id="form">
+        <input type="text" name="nome" placeholder="nome" />
+        <input type="text" name="cpf" placeholder="cpf" />
+        <input type="email" name="email" placeholder="email" />
+        <input
+          type="number"
+          id="salario"
+          name="salario"
+          placeholder="salario"
+        />
+        <input type="number" id="idade" name="idade" placeholder="idade" />
+        <button>Cadastrar</button>
+      </form>
 
-    <table>
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>nome</th>
-          <th>cpf</th>
-          <th>email</th>
-          <th>salario</th>
-          <th>idade</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr th:each="funcionario : ${funcionarios}">
-          <td th:text="${funcionario.id}"></td>
-          <td th:text="${funcionario.nome}"></td>
-          <td th:text="${funcionario.cpf}"></td>
-          <td th:text="${funcionario.email}"></td>
-          <td th:text="${funcionario.salario}"></td>
-          <td th:text="${funcionario.idade}"></td>
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>nome</th>
+            <th>cpf</th>
+            <th>email</th>
+            <th>salario</th>
+            <th>idade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="funcionario : ${funcionarios}">
+            <td th:text="${funcionario.id}"></td>
+            <td th:text="${funcionario.nome}"></td>
+            <td th:text="${funcionario.cpf}"></td>
+            <td th:text="${funcionario.email}"></td>
+            <td th:text="${funcionario.salario}"></td>
+            <td th:text="${funcionario.idade}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <script>
+      document.getElementById("form").onsubmit = () => {
+        const idade = document.getElementById("idade").value;
+        if (idade.length === 0) document.getElementById("idade").value = -1;
 
-        </tr>
-      </tbody>
-    </table>
-  </main>
-</body>
+        const salario = document.getElementById("salario").value;
+        if (salario.length === 0) document.getElementById("salario").value = -1;
+      };
+    </script>
+  </body>
 </html>
