@@ -21,12 +21,8 @@ public class Funcionario implements Serializable {
   private String nome;
   private String cpf;
   private String email;
-  private double salario;
-  private int idade;
-
-  public static long getSerialversionuid() {
-    return serialVersionUID;
-  }
+  private Double salario;
+  private Integer idade;
 
   public int getId() {
     return id;
@@ -60,36 +56,20 @@ public class Funcionario implements Serializable {
     this.email = email;
   }
 
-  public double getSalario() {
+  public Double getSalario() {
     return salario;
   }
 
-  public void setSalario(double salario) {
+  public void setSalario(Double salario) {
     this.salario = salario;
   }
 
-  public int getIdade() {
+  public Integer getIdade() {
     return idade;
   }
 
-  public void setIdade(int idade) {
+  public void setIdade(Integer idade) {
     this.idade = idade;
-  }
-
-  @Override
-  public String toString() {
-    return "Funcionario []";
-  }
-
-  public Funcionario(String nome, String cpf, String email, double salario, int idade) {
-    this.nome = nome;
-    this.cpf = cpf;
-    this.email = email;
-    this.salario = salario;
-    this.idade = idade;
-  }
-
-  public Funcionario() {
   }
 
 }

@@ -26,8 +26,7 @@ public class FuncionarioController {
   }
 
   @PostMapping("/funcionarios")
-  public String store(@RequestParam(value = "idade", defaultValue = "") String idade, @ModelAttribute Funcionario func,
-      RedirectAttributes attr) {
+  public String store(@ModelAttribute Funcionario func, RedirectAttributes attr) {
 
     if (func.getNome().trim().length() == 0 || func.getEmail().trim().length() == 0
         || func.getCpf().trim().length() == 0 || func.getIdade() == -1 || func.getSalario() == -1) {
